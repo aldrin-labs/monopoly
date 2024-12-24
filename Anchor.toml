@@ -1,15 +1,20 @@
 [toolchain]
 anchor_version = "0.28.0"
+solana_version = "1.18.2"
 
 [features]
 resolution = true
 skip-lint = false
 
 [programs.localnet]
-monopoly_world = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
-movement = "8UP7Ezw5qK7eRaLstChu9QVBzku7G6aGK5gQsSQrvB4R"
-position = "BKFBy41BBf45X2RQZCBP7Jk3SH6FpXtnN4M91pwM7xDo"
-solana_monopoly = "GPE95gXdq1Rv6obrv3kfJA4C3W6z27oRZhV8PEHwL7BK"
+monopoly_world = { path = "programs/monopoly-world", address = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS" }
+movement = { path = "programs/systems/movement", address = "8UP7Ezw5qK7eRaLstChu9QVBzku7G6aGK5gQsSQrvB4R" }
+position = { path = "programs/components/position", address = "BKFBy41BBf45X2RQZCBP7Jk3SH6FpXtnN4M91pwM7xDo" }
+solana_monopoly = { path = "programs/solana-monopoly", address = "GPE95gXdq1Rv6obrv3kfJA4C3W6z27oRZhV8PEHwL7BK" }
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
 
 [registry]
 url = "https://api.apr.dev"
