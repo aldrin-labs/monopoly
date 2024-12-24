@@ -1,28 +1,20 @@
 [workspace]
 members = [
-    "programs/monopoly-world",
-    "programs/components/common",
-    "programs/components/game-state/game-state-component",
-    "programs/components/player/player-component",
-    "programs/components/position",
-    "programs/components/property/property-component",
-    "programs/systems/cards",
-    "programs/systems/movement",
-    "programs/systems/property"
+    "programs/monopoly"
 ]
 resolver = "2"
 
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Devin <devin@magicblock.gg>"]
+repository = "https://github.com/aldrin-labs/monopoly"
+homepage = "https://github.com/aldrin-labs/monopoly"
+license = "MIT"
+
 [workspace.dependencies]
-bolt-lang = { version = "0.1.12", features = ["idl-build", "anchor-debug"] }
-bolt-component = "0.1.12"
-solana-program = { version = "=1.18.2" }
-
-[build]
-rustflags = ["--cfg", "force_system_toolchain"]
-
-[env]
-RUST_TOOLCHAIN = "1.75.0"
-RUSTC_WRAPPER = ""
+solana-program = "=1.18.2"
+sha3 = { version = "0.10.8", default-features = false }
 
 [profile.release]
 overflow-checks = true
@@ -33,10 +25,3 @@ codegen-units = 1
 opt-level = 3
 incremental = false
 codegen-units = 1
-
-[patch.crates-io]
-# Uncomment this to use the latest in-development version of Bolt
-# bolt-lang = { git = "https://github.com/magicblock-labs/bolt.git", branch = "main" }
-
-# Uncomment this to use a local version of Bolt for development (bolt must be cloned above the current directory)
-# bolt-lang = { path = "../bolt/crates/bolt-lang"}
