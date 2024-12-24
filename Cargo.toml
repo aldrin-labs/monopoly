@@ -15,7 +15,7 @@ resolver = "2"
 [workspace.dependencies]
 bolt-lang = { version = "0.1.12", features = ["idl-build", "anchor-debug"] }
 bolt-component = "0.1.12"
-solana-program = { version = "1.18.26" }
+solana-program = { version = "=1.18.2" }
 
 [build]
 rustflags = ["--cfg", "force_system_toolchain"]
