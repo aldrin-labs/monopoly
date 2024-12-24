@@ -1,13 +1,31 @@
-[package]
-name = "solana-monopoly"
-version = "0.1.0"
-edition = "2021"
-description = "On-chain Monopoly game using Bolt ECS on Solana"
+[workspace]
+members = [
+    "programs/*",
+    "programs-ecs/components/game-state/game-state-component",
+    "programs-ecs/components/player/player-component",
+    "programs-ecs/components/property/property-component",
+    "programs-ecs/components/common",
+    "programs-ecs/systems/*",
+    "programs-ecs/world"
+]
+resolver = "2"
 
-[dependencies]
+[workspace.dependencies]
 bolt-lang = "0.1.12"
-anchor-lang = "0.28.0"
-solana-program = "1.16"
 
-[lib]
-crate-type = ["cdylib", "lib"]
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1
+
+[patch.crates-io]
+# Uncomment this to use the latest in-development version of Bolt
+# bolt-lang = { git = "https://github.com/magicblock-labs/bolt.git", branch = "main" }
+
+# Uncomment this to use a local version of Bolt for development (bolt must be cloned above the current directory)
+# bolt-lang = { path = "../bolt/crates/bolt-lang"}
