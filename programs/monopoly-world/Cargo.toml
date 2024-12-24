@@ -18,4 +18,4 @@ default = []
 [dependencies]
 anchor-lang = { workspace = true }
 bolt-lang = { workspace = true }
-solana-program = "1.16"
+solana-program = { workspace = true }
