@@ -19,6 +19,16 @@ pub mod account_ext;
 pub mod board;
 
 #[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_process_instruction() {
+        // TODO: Implement test
+    }
+}
+
+#[cfg(test)]
 pub mod test;
 
 use instruction::MonopolyInstruction;

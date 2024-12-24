@@ -438,6 +438,46 @@ pub enum Card {
     GetOutOfJail,
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_color_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_property_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_special_tile_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_tile_type_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_player_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_game_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_card_pack() {
+        // TODO: Implement test
+    }
+}
+
 impl Pack for Card {
     const LEN: usize = 9; // 1 byte for type + 8 bytes for value
 

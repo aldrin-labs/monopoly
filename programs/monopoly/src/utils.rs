@@ -9,6 +9,36 @@ use solana_program::{
 use crate::state::{TileType, Color};
 
 /// Generate a random number using on-chain data
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_generate_random_number() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_roll_dice() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_calculate_rent() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_owns_color_group() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_can_build_house() {
+        // TODO: Implement test
+    }
+}
+
 pub fn generate_random_number(
     clock_sysvar_info: &AccountInfo,
     seed: u64,

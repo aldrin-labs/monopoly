@@ -97,6 +97,21 @@ impl MonopolyInstruction {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_instruction_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_instruction_unpack() {
+        // TODO: Implement test
+    }
+}
+
 impl Pack for MonopolyInstruction {
     const LEN: usize = 1024; // Large enough for instruction data
 

@@ -4,6 +4,16 @@ use solana_program::{
 };
 use crate::account::GameAccount;
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_try_into_game_account() {
+        // TODO: Implement test
+    }
+}
+
 pub trait AccountExt {
     fn try_into_game_account(&self) -> Result<GameAccount, &'static str>;
 }

@@ -1,5 +1,25 @@
 use crate::state::{TileType, Property, SpecialTile, Color, Card};
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_create_board() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_create_community_chest() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_create_chance_cards() {
+        // TODO: Implement test
+    }
+}
+
 pub fn create_board() -> Vec<TileType> {
     vec![
         // Square 0 - GO

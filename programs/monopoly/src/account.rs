@@ -8,7 +8,36 @@ use solana_program::{
 
 use crate::state::{Game, Player, Property, Card};
 
-#[derive(Clone, Debug)]
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_game_account_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_player_account_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_property_account_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_card_deck_pack() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_account_validation() {
+        // TODO: Implement test
+    }
+}
+
 pub struct GameAccount {
     pub is_initialized: bool,
     pub game: Game,

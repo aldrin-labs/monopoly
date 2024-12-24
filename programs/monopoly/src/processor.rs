@@ -18,6 +18,51 @@ use crate::{
     board::{create_board, create_community_chest, create_chance_cards},
 };
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_process_init_game() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_process_move_player() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_process_buy_property() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_process_build_house() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_process_pay_rent() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_process_next_turn() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_process_check_winner() {
+        // TODO: Implement test
+    }
+
+    #[test]
+    fn test_process_draw_card() {
+        // TODO: Implement test
+    }
+}
+
 pub fn process_instruction(
     program_id: &Pubkey,
     accounts: &[AccountInfo],
