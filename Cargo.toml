@@ -15,7 +15,7 @@ resolver = "2"
 [workspace.dependencies]
 bolt-lang = "0.1.12"
 anchor-lang = "0.30.1"
-solana-program = "1.17.3"
+solana-program = "=1.16.27"
 
 [profile.release]
 overflow-checks = true
