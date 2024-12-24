@@ -1,5 +1,4 @@
 use bolt_lang::prelude::*;
-use anchor_lang::prelude::*;
 use common::{Card, Color, Property, TileType, SpecialTile};
 use player_component::Player;
 use property_component::Property as PropertyComponent;

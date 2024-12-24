@@ -19,5 +19,5 @@ anchor-debug = ["bolt-lang/anchor-debug"]
 
 [dependencies]
 bolt-lang = { workspace = true }
-anchor-lang = { workspace = true }
+bolt-component = { workspace = true }
 solana-program = { workspace = true }

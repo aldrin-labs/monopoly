@@ -13,9 +13,9 @@ members = [
 resolver = "2"
 
 [workspace.dependencies]
-bolt-lang = "0.1.12"
-anchor-lang = "0.30.1"
-solana-program = "=1.16.27"
+bolt-lang = { version = "0.1.12", features = ["idl-build", "anchor-debug"] }
+bolt-component = "0.1.12"
+solana-program = { version = "^1.17.3" }
 
 [profile.release]
 overflow-checks = true

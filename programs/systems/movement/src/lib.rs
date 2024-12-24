@@ -1,5 +1,5 @@
 use bolt_lang::prelude::*;
-use anchor_lang::prelude::*;
+use bolt_lang::{system, system_input};
 use common::{TileType, SpecialTile};
 use player_component::Player;
 use game_state_component::GameState;

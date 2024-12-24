@@ -1,5 +1,4 @@
 use bolt_lang::prelude::*;
-use anchor_lang::prelude::*;
 use common::{Property, TileType};
 use player_component::Player;
 use game_state_component::GameState;
