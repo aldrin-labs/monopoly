@@ -2,3 +2,4 @@
 channel = "1.75.0"
 components = ["rustfmt", "clippy"]
 profile = "minimal"
+targets = ["x86_64-unknown-linux-gnu"]
