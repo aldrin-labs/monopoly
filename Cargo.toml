@@ -1,0 +1,13 @@
+[package]
+name = "solana-monopoly"
+version = "0.1.0"
+edition = "2021"
+description = "On-chain Monopoly game using Bolt ECS on Solana"
+
+[dependencies]
+bolt-lang = "0.1.12"
+anchor-lang = "0.28.0"
+solana-program = "1.16"
+
+[lib]
+crate-type = ["cdylib", "lib"]
