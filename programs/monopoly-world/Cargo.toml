@@ -1,12 +1,12 @@
 [package]
-name = "property-component"
+name = "monopoly-world"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "property_component"
+name = "monopoly_world"
 
 [features]
 no-entrypoint = []
@@ -14,11 +14,8 @@ no-idl = []
 no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
-idl-build = ["bolt-lang/idl-build"]
-anchor-debug = ["bolt-lang/anchor-debug"]
 
 [dependencies]
-bolt-lang = { workspace = true }
 anchor-lang = { workspace = true }
+bolt-lang = { workspace = true }
 solana-program = "1.16"
-common = { path = "../../common" }

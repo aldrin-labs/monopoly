@@ -1,11 +1,25 @@
 [package]
 name = "property-system"
 version = "0.1.0"
+description = "Created with Anchor"
 edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "property_system"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+idl-build = ["bolt-lang/idl-build"]
+anchor-debug = ["bolt-lang/anchor-debug"]
 
 [dependencies]
 bolt-lang = { workspace = true }
-anchor-lang = "0.28.0"
+anchor-lang = { workspace = true }
 solana-program = "1.16"
 common = { path = "../../components/common" }
 player-component = { path = "../../components/player/player-component" }

@@ -21,8 +21,14 @@ wallet = "~/.config/solana/id.json"
 [workspace]
 members = [
     "programs/monopoly-world",
-    "programs/components/*",
-    "programs/systems/*"
+    "programs/components/common",
+    "programs/components/game-state/game-state-component",
+    "programs/components/player/player-component",
+    "programs/components/position",
+    "programs/components/property/property-component",
+    "programs/systems/cards",
+    "programs/systems/movement",
+    "programs/systems/property"
 ]
 
 [scripts]

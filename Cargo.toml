@@ -1,17 +1,20 @@
 [workspace]
 members = [
-    "programs/*",
-    "programs-ecs/components/game-state/game-state-component",
-    "programs-ecs/components/player/player-component",
-    "programs-ecs/components/property/property-component",
-    "programs-ecs/components/common",
-    "programs-ecs/systems/*",
-    "programs-ecs/world"
+    "programs/monopoly-world",
+    "programs/components/common",
+    "programs/components/game-state/game-state-component",
+    "programs/components/player/player-component",
+    "programs/components/position",
+    "programs/components/property/property-component",
+    "programs/systems/cards",
+    "programs/systems/movement",
+    "programs/systems/property"
 ]
 resolver = "2"
 
 [workspace.dependencies]
 bolt-lang = "0.1.12"
+anchor-lang = "0.28.0"
 
 [profile.release]
 overflow-checks = true
