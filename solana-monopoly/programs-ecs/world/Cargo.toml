@@ -1,0 +1,16 @@
+[package]
+name = "monopoly-world"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bolt-lang = { workspace = true }
+anchor-lang = "0.28.0"
+solana-program = "1.16"
+common = { path = "../components/common" }
+player-component = { path = "../components/player/player-component" }
+property-component = { path = "../components/property/property-component" }
+game-state-component = { path = "../components/game-state/game-state-component" }
+movement-system = { path = "../systems/movement" }
+property-system = { path = "../systems/property" }
+cards-system = { path = "../systems/cards" }
