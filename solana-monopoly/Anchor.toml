@@ -6,6 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
+monopoly_world = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
 movement = "8UP7Ezw5qK7eRaLstChu9QVBzku7G6aGK5gQsSQrvB4R"
 position = "BKFBy41BBf45X2RQZCBP7Jk3SH6FpXtnN4M91pwM7xDo"
 solana_monopoly = "GPE95gXdq1Rv6obrv3kfJA4C3W6z27oRZhV8PEHwL7BK"
@@ -14,7 +15,7 @@ solana_monopoly = "GPE95gXdq1Rv6obrv3kfJA4C3W6z27oRZhV8PEHwL7BK"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "localnet"
 wallet = "~/.config/solana/id.json"
 
 [workspace]
