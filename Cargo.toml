@@ -15,7 +15,14 @@ resolver = "2"
 [workspace.dependencies]
 bolt-lang = { version = "0.1.12", features = ["idl-build", "anchor-debug"] }
 bolt-component = "0.1.12"
-solana-program = { version = "^1.17.3" }
+solana-program = { version = "1.18.26" }
+
+[build]
+rustflags = ["--cfg", "force_system_toolchain"]
+
+[env]
+RUST_TOOLCHAIN = "1.75.0"
+RUSTC_WRAPPER = ""
 
 [profile.release]
 overflow-checks = true

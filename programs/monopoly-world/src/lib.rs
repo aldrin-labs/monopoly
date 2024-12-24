@@ -4,7 +4,7 @@ use player_component::Player;
 use property_component::Property as PropertyComponent;
 use game_state_component::GameState;
 
-declare_id!("BUP7Ezw5qK7eRaLstChu9QVBzku7G6aGK5gQsSQrvB4W");
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 
 #[program]
 pub mod monopoly_world {
