@@ -1,7 +1,9 @@
 [workspace]
 members = [
     "programs/*",
-    "programs-ecs/components/*",
+    "programs-ecs/components/game-state/game-state-component",
+    "programs-ecs/components/player/player-component",
+    "programs-ecs/components/property/property-component",
     "programs-ecs/components/common",
     "programs-ecs/systems/*",
     "programs-ecs/world"
