@@ -2339,6 +2339,7 @@ dependencies = [
 name = "monopoly"
 version = "0.1.0"
 dependencies = [
+ "bincode",
  "bytemuck",
  "num-derive 0.4.2",
  "num-traits",

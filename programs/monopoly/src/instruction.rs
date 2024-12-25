@@ -103,12 +103,171 @@ mod tests {
 
     #[test]
     fn test_instruction_pack() {
-        // TODO: Implement test
+        // Test InitGame instruction
+        let player_names = vec!["Alice".to_string(), "Bob".to_string()];
+        let init_instruction = MonopolyInstruction::InitGame { player_names: player_names.clone() };
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        init_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::InitGame { player_names: ref names } if names == &player_names));
+
+        // Test MovePlayer instruction
+        let move_instruction = MonopolyInstruction::MovePlayer;
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        move_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::MovePlayer));
+
+        // Test BuyProperty instruction
+        let buy_instruction = MonopolyInstruction::BuyProperty { property_index: 5 };
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        buy_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::BuyProperty { property_index } if property_index == 5));
+
+        // Test BuildHouse instruction
+        let build_instruction = MonopolyInstruction::BuildHouse { property_index: 3 };
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        build_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::BuildHouse { property_index } if property_index == 3));
+
+        // Test PayRent instruction
+        let rent_instruction = MonopolyInstruction::PayRent { property_index: 7 };
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        rent_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::PayRent { property_index } if property_index == 7));
+
+        // Test NextTurn instruction
+        let next_turn_instruction = MonopolyInstruction::NextTurn;
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        next_turn_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::NextTurn));
+
+        // Test CheckWinner instruction
+        let check_winner_instruction = MonopolyInstruction::CheckWinner;
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        check_winner_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::CheckWinner));
+
+        // Test DrawCard instruction
+        let draw_instruction = MonopolyInstruction::DrawCard { deck_type: DeckType::CommunityChest };
+        let mut packed = vec![0u8; MonopolyInstruction::LEN];
+        draw_instruction.pack_into_slice(&mut packed);
+        let unpacked = MonopolyInstruction::try_from_slice(&packed).unwrap();
+        assert!(matches!(unpacked, MonopolyInstruction::DrawCard { deck_type } if matches!(deck_type, DeckType::CommunityChest)));
     }
 
     #[test]
     fn test_instruction_unpack() {
-        // TODO: Implement test
+        // Test InitGame instruction
+        let mut init_data = vec![0u8]; // Variant index 0
+        let player_names = vec!["Alice".to_string(), "Bob".to_string()];
+        let names_len = player_names.len() as u32;
+        init_data.extend_from_slice(&names_len.to_le_bytes());
+        for name in &player_names {
+            let name_bytes = name.as_bytes();
+            init_data.extend_from_slice(&(name_bytes.len() as u32).to_le_bytes());
+            init_data.extend_from_slice(name_bytes);
+        }
+        let mut rest = &init_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        if let MonopolyInstruction::InitGame { player_names: unpacked_names } = result.unwrap() {
+            assert_eq!(unpacked_names, player_names);
+        } else {
+            panic!("Expected InitGame instruction");
+        }
+
+        // Test MovePlayer instruction
+        let move_data = vec![1u8];
+        let mut rest = &move_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        assert!(matches!(result.unwrap(), MonopolyInstruction::MovePlayer));
+
+        // Test BuyProperty instruction
+        let mut buy_data = vec![2u8];
+        buy_data.push(5); // property_index
+        let mut rest = &buy_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        if let MonopolyInstruction::BuyProperty { property_index } = result.unwrap() {
+            assert_eq!(property_index, 5);
+        } else {
+            panic!("Expected BuyProperty instruction");
+        }
+
+        // Test BuildHouse instruction
+        let mut build_data = vec![3u8];
+        build_data.push(3); // property_index
+        let mut rest = &build_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        if let MonopolyInstruction::BuildHouse { property_index } = result.unwrap() {
+            assert_eq!(property_index, 3);
+        } else {
+            panic!("Expected BuildHouse instruction");
+        }
+
+        // Test PayRent instruction
+        let mut rent_data = vec![4u8];
+        rent_data.push(7); // property_index
+        let mut rest = &rent_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        if let MonopolyInstruction::PayRent { property_index } = result.unwrap() {
+            assert_eq!(property_index, 7);
+        } else {
+            panic!("Expected PayRent instruction");
+        }
+
+        // Test NextTurn instruction
+        let next_turn_data = vec![5u8];
+        let mut rest = &next_turn_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        assert!(matches!(result.unwrap(), MonopolyInstruction::NextTurn));
+
+        // Test CheckWinner instruction
+        let check_winner_data = vec![6u8];
+        let mut rest = &check_winner_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        assert!(matches!(result.unwrap(), MonopolyInstruction::CheckWinner));
+
+        // Test DrawCard instruction
+        let mut draw_data = vec![7u8];
+        draw_data.push(0); // CommunityChest
+        let mut rest = &draw_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_ok());
+        if let MonopolyInstruction::DrawCard { deck_type } = result.unwrap() {
+            assert!(matches!(deck_type, DeckType::CommunityChest));
+        } else {
+            panic!("Expected DrawCard instruction");
+        }
+
+        // Test invalid variant
+        let invalid_data = vec![255u8];
+        let mut rest = &invalid_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_err());
+
+        // Test empty data
+        let empty_data: Vec<u8> = vec![];
+        let mut rest = &empty_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_err());
+
+        // Test truncated data
+        let mut truncated_data = vec![2u8]; // BuyProperty without property_index
+        let mut rest = &truncated_data[..];
+        let result = MonopolyInstruction::unpack_from_slice(&mut rest);
+        assert!(result.is_err());
     }
 }
 

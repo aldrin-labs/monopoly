@@ -26,6 +26,26 @@ pub enum MonopolyError {
     NotPropertyOwner,
     #[error("Invalid Game State")]
     InvalidGameState,
+    #[error("Insufficient Funds")]
+    InsufficientFunds,
+    #[error("Property Not Owned")]
+    PropertyNotOwned,
+    #[error("Own Property")]
+    OwnProperty,
+    #[error("Not Player's Turn")]
+    NotPlayerTurn,
+    #[error("Not A Property")]
+    NotAProperty,
+    #[error("Invalid Dice Roll")]
+    InvalidDiceRoll,
+    #[error("Incomplete Color Set")]
+    IncompleteColorSet,
+    #[error("Invalid Property Index")]
+    InvalidPropertyIndex,
+    #[error("Maximum Houses Reached")]
+    MaxHousesReached,
+    #[error("Invalid Player Count")]
+    InvalidPlayerCount,
 }
 
 impl From<MonopolyError> for ProgramError {

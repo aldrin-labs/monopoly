@@ -2,6 +2,7 @@ use solana_program::{
     account_info::AccountInfo,
     entrypoint::ProgramResult,
     program_error::ProgramError,
+    program_pack::Pack,
     pubkey::Pubkey,
     system_instruction,
 };
