@@ -1,0 +1,9 @@
+[target.'cfg(target_os = "solana")']
+rustflags = ["-C", "link-arg=-zstack-size=32768"]
+
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "link-arg=-Wl,-zstack-size=32768"]
+
+[env]
+RUST_TOOLCHAIN = "1.75.0"
+RUSTC_WRAPPER = ""
